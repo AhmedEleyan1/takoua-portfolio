@@ -3,11 +3,12 @@
 import { motion } from "framer-motion";
 import { Play, Image as ImageIcon, Users, Calendar, Award, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const eventStats = [
-    { label: "Attendees", value: "360", icon: Users },
-    { label: "Speakers", value: "34", icon: Award },
-    { label: "International", value: "18", icon: Calendar },
+    { label: "Attendees", value: 360, icon: Users },
+    { label: "Speakers", value: 34, icon: Award },
+    { label: "International", value: 18, icon: Calendar },
 ];
 
 export default function EventMedia() {
@@ -86,7 +87,9 @@ export default function EventMedia() {
                                             <stat.icon size={20} />
                                         </div>
                                         <div>
-                                            <p className="text-2xl font-bold text-primary-dark tracking-tight">{stat.value}</p>
+                                            <div className="text-2xl font-bold text-primary-dark tracking-tight flex items-center">
+                                                <AnimatedCounter value={stat.value} />
+                                            </div>
                                             <p className="text-xs text-secondary-foreground/50 font-medium uppercase">{stat.label}</p>
                                         </div>
                                     </div>

@@ -1,20 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 const stats = [
     {
-        value: "30%",
+        value: 30,
+        suffix: "%",
         label: "Annual Revenue Growth",
         subtext: "Orchestrated commercial strategy and high-ticket sales at Clinique Ophtalmologique de Tunis.",
     },
     {
-        value: "+40%",
+        value: 40,
+        prefix: "+",
+        suffix: "%",
         label: "Digital Bookings",
         subtext: "Implemented custom medical CRM and ethical SEO campaigns.",
     },
     {
-        value: "360+",
+        value: 360,
+        suffix: "+",
         label: "Congress Attendees",
         subtext: "Organized the 'State of the Art' International Ophthalmology Meeting with 18 international speakers.",
     },
@@ -34,9 +39,13 @@ export default function ImpactBar() {
                             viewport={{ once: true }}
                             className="space-y-4"
                         >
-                            <h3 className="text-5xl md:text-6xl font-bold text-accent tracking-tight">
-                                {stat.value}
-                            </h3>
+                            <div className="text-5xl md:text-6xl font-bold text-accent tracking-tight flex justify-center">
+                                <AnimatedCounter
+                                    value={stat.value}
+                                    prefix={stat.prefix}
+                                    suffix={stat.suffix}
+                                />
+                            </div>
                             <p className="text-xl font-medium text-white/90">{stat.label}</p>
                             <p className="text-sm text-white/70 max-w-xs mx-auto leading-relaxed">
                                 {stat.subtext}
